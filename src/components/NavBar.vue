@@ -4,7 +4,7 @@
         <router-link class="navbar-brand" to="/">Trivia App</router-link>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+         <router-link class="nav-item nav-link" to="/chuck">Chuck App</router-link>
         <a class="nav-item nav-link" href="#">Features</a>
         <a class="nav-item nav-link" href="#">Pricing</a>
         <a class="nav-item nav-link disabled" href="#">Disabled</a>
