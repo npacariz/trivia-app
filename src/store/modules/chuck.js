@@ -1,30 +1,30 @@
-import { chuck }  from '../../services/ChuckService.js'
+import { chuck } from "../../services/ChuckService.js";
 
 const state = {
-    chuckJoks: {}
-}
+  chuckJoks: {}
+};
 const mutations = {
-    setJoks(state, data){
-        state.chuckJoks = data
-    }
-}
+  setJoks(state, data) {
+    state.chuckJoks = data;
+  }
+};
 const actions = {
-    getJoksChunk(context, value) {
-        chuck.getAll(value).then(response => {
-            context.commit('setJoks', response)
-        })
-    }
+  async getJoksChunk(context, value) {
+    let resolve = await chuck.getAll(value);
+    context.commit("setJoks", resolve);
+    return resolve;
+  }
 };
 
 const getters = {
-    getJok(state) {
-        return state.chuckJoks
-    }
-}
+  getJok(state) {
+    return state.chuckJoks;
+  }
+};
 
 export default {
-    state,
-    mutations,
-    actions,
-    getters
-}
+  state,
+  mutations,
+  actions,
+  getters
+};
