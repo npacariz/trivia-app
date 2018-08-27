@@ -2,7 +2,8 @@ import { trivia } from "./../../services/TriviaService";
 
 const state = {
   trivias: [],
-  categories: []
+  categories: [],
+  searchTerm: ""
 };
 
 const mutations = {
@@ -11,6 +12,9 @@ const mutations = {
   },
   addCategoriesToState(state, categories) {
     state.categories = categories;
+  },
+  changinSearchTerm(state, value) {
+    state.searchTerm = value;
   }
 };
 
@@ -29,12 +33,17 @@ const actions = {
     trivia.getTriviasOfCategory(id).then(response => {
       context.commit("addTriviaToState", response.data.clues);
     });
+  },
+  getingSearchTerm(context, value) {
+    context.commit("changinSearchTerm", value);
   }
 };
 
 const getters = {
   getAllTrivias(state) {
-    return state.trivias;
+    return state.trivias.filter(trivia => {
+      return trivia.question.match(state.searchTerm);
+    });
   },
   getCategories(state) {
     return state.categories;

@@ -2,7 +2,7 @@
   <div class="TriviaApp">
     <h1>Trivia Questions</h1>
     <select  @change="getTriviasCategories" v-model="selectedCategory">
-       <option value="">--Please choose an option--</option>
+       <option value="">--Select a categories--</option>
       <option v-for="category in categories" :key="category.id" :value="category.id">{{category.title}}</option>
     </select>
     <div v-for="trivia in trivias" :key="trivia.id">
@@ -32,7 +32,6 @@ export default {
       featchTriviasOfCategory: "featchTriviasOfCategory"
     }),
     getTriviasCategories() {
-      console.log(this.selectedCategory);
       this.featchTriviasOfCategory(this.selectedCategory);
     }
   },

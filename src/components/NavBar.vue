@@ -5,9 +5,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
          <router-link class="nav-item nav-link" to="/chuck">Chuck App</router-link>
-        <a class="nav-item nav-link" href="#">Features</a>
-        <a class="nav-item nav-link" href="#">Pricing</a>
-        <a class="nav-item nav-link disabled" href="#">Disabled</a>
+          <Search />
     </div>
   </div>
 </nav>
@@ -15,11 +13,13 @@
 </template>
 
 <script>
+import Search from "./Search.vue";
 export default {
-  name: 'NavBar',
-
-}
+  name: "NavBar",
+  components: {
+    Search
+  }
+};
 </script>
 <style scoped>
-
 </style>
