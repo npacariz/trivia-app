@@ -42,7 +42,9 @@ const actions = {
 const getters = {
   getAllTrivias(state) {
     return state.trivias.filter(trivia => {
-      return trivia.question.match(state.searchTerm);
+      return trivia.question
+        .toLowerCase()
+        .match(state.searchTerm.toLowerCase());
     });
   },
   getCategories(state) {
